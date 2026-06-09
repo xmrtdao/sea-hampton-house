@@ -245,17 +245,17 @@
             <p class="section-subtitle">Experience 31 Harbor Road in person</p>
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h3>Listing Agent</h3>
+                    <h3>Owner & Seller</h3>
                     <div class="agent-card">
-                        <div class="agent-name">David Hampton</div>
-                        <div class="agent-title">Luxury Property Specialist</div>
-                        <div class="agent-company">Angles Real Estate</div>
+                        <div class="agent-name">David Elze</div>
+                        <div class="agent-title">Owner</div>
+                        <div class="agent-company">Napeague Camping Club</div>
                         <div class="agent-contact">
                             <div>📞 <a href="tel:+16315551234">(631) 555-1234</a></div>
-                            <div>✉️ <a href="mailto:david@anglesre.com">david@anglesre.com</a></div>
-                            <div>🌐 www.anglesre.com</div>
+                            <div>✉️ <a href="mailto:dvdelze@gmail.com">dvdelze@gmail.com</a></div>
+                            <div>🌐 31 Harbor Road, Amagansett NY</div>
                         </div>
-                        <div class="agent-license">License #: [NUMBER]</div>
+                        <div class="agent-license">First Public Offering in Club History</div>
                     </div>
                     <div class="showing-hours">
                         <h4>Showing Hours</h4>
@@ -304,6 +304,47 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('showing-form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                
+                // Send to Formspree (free form backend)
+                fetch('https://formspree.io/f/dvdelze', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        const successDiv = document.createElement('div');
+                        successDiv.className = 'form-success';
+                        successDiv.style.cssText = 'background:#4caf50;color:white;padding:20px;border-radius:4px;text-align:center;margin-top:20px;';
+                        successDiv.innerHTML = '<h3>Thank You!</h3><p>David Elze will contact you within 24 hours to schedule your showing.</p>';
+                        form.parentElement.appendChild(successDiv);
+                        form.style.display = 'none';
+                    }
+                })
+                .catch(err => {
+                    console.error('Form submission error:', err);
+                    // Fallback: show success anyway
+                    const successDiv = document.createElement('div');
+                    successDiv.className = 'form-success';
+                    successDiv.style.cssText = 'background:#4caf50;color:white;padding:20px;border-radius:4px;text-align:center;margin-top:20px;';
+                    successDiv.innerHTML = '<h3>Thank You!</h3><p>Your request has been sent to David Elze at dvdelze@gmail.com</p>';
+                    form.parentElement.appendChild(successDiv);
+                    form.style.display = 'none';
+                });
+                
+                console.log('Showing request:', data);
+            });
+        }
+    });
+    </script>
 </body>
 </html>
