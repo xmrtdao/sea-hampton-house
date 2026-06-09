@@ -150,43 +150,92 @@
     <section id="gallery" class="section gallery">
         <div class="container">
             <h2 class="section-title">Photo Gallery</h2>
-            <p class="section-subtitle">Explore every corner of this exceptional home</p>
+            <p class="section-subtitle">Explore every corner of this exceptional property</p>
+            
+            <!-- Gallery Filter Tabs -->
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All Photos</button>
+                <button class="filter-btn" data-filter="exterior">Exterior</button>
+                <button class="filter-btn" data-filter="interior">Interior</button>
+                <button class="filter-btn" data-filter="waterfront">Waterfront</button>
+            </div>
+            
             <div class="gallery-grid">
-                <div class="gallery-item large">
-                    <img src="assets/images/hero-exterior.jpg" alt="Exterior view" onerror="this.src='https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200'">
-                    <div class="gallery-caption">Exterior & Waterfront</div>
+                <div class="gallery-item large" data-category="exterior">
+                    <img src="assets/images/hero-exterior.jpg" alt="Exterior view of cottage" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200'">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">🔍</div>
+                        <div class="gallery-caption">Exterior & Waterfront</div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/images/kitchen.jpg" alt="Gourmet kitchen" onerror="this.src='https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=600'">
-                    <div class="gallery-caption">Kitchen</div>
+                <div class="gallery-item" data-category="interior">
+                    <img src="assets/images/living-room.jpg" alt="Living room with water views" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600'">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">🔍</div>
+                        <div class="gallery-caption">Living Room</div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/images/master-bedroom.jpg" alt="Primary bedroom" onerror="this.src='https://images.unsplash.com/photo-1616594039964-40891a904d09?w=600'">
-                    <div class="gallery-caption">Primary Bedroom</div>
+                <div class="gallery-item" data-category="interior">
+                    <img src="assets/images/kitchen.jpg" alt="Modern kitchen" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=600'">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">🔍</div>
+                        <div class="gallery-caption">Kitchen</div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/images/bathroom.jpg" alt="Spa bathroom" onerror="this.src='https://images.unsplash.com/photo-1552321901-75969f161f2c?w=600'">
-                    <div class="gallery-caption">Primary Bath</div>
+                <div class="gallery-item" data-category="interior">
+                    <img src="assets/images/master-bedroom.jpg" alt="Primary bedroom suite" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1616594039964-40891a904d09?w=600'">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">🔍</div>
+                        <div class="gallery-caption">Primary Bedroom</div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/images/dock.jpg" alt="Private dock" onerror="this.src='https://images.unsplash.com/photo-1544984243-ec57ea16fe25?w=600'">
-                    <div class="gallery-caption">Private Dock</div>
+                <div class="gallery-item" data-category="interior">
+                    <img src="assets/images/bathroom.jpg" alt="Spa-inspired bathroom" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1552321901-75969f161f2c?w=600'">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">🔍</div>
+                        <div class="gallery-caption">Primary Bath</div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/images/pool.jpg" alt="Pool area" onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=600'">
-                    <div class="gallery-caption">Pool & Patio</div>
+                <div class="gallery-item" data-category="waterfront">
+                    <img src="assets/images/dock.jpg" alt="Private dock on Gardiners Bay" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1544984243-ec57ea16fe25?w=600'">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">🔍</div>
+                        <div class="gallery-caption">Private Dock</div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/images/dining.jpg" alt="Dining room" onerror="this.src='https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600'">
-                    <div class="gallery-caption">Dining Room</div>
+                <div class="gallery-item" data-category="exterior">
+                    <img src="assets/images/pool.jpg" alt="Pool and patio area" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=600'">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">🔍</div>
+                        <div class="gallery-caption">Pool & Patio</div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/images/living-room.jpg" alt="Living room" onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600'">
-                    <div class="gallery-caption">Living Room</div>
+                <div class="gallery-item" data-category="interior">
+                    <img src="assets/images/dining.jpg" alt="Dining area" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600'">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">🔍</div>
+                        <div class="gallery-caption">Dining Room</div>
+                    </div>
                 </div>
+            </div>
+            
+            <div class="gallery-counter">
+                <span id="gallery-count">9</span> photos
             </div>
         </div>
     </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">×</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">‹</button>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">›</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-img">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+        </div>
+    </div>
 
     <!-- Floor Plan Section -->
     <section id="floorplan" class="section floorplan">
@@ -305,7 +354,115 @@
     </footer>
 
     <script>
+    // Gallery Filter & Lightbox Functionality
     document.addEventListener('DOMContentLoaded', function() {
+        
+        // Gallery Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Filter items
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => item.style.opacity = '1', 50);
+                    } else {
+                        item.style.opacity = '0';
+                        setTimeout(() => item.style.display = 'none', 300);
+                    }
+                });
+            });
+        });
+        
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        
+        let currentIndex = 0;
+        let visibleItems = [];
+        
+        // Open lightbox on image click
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', function() {
+                visibleItems = Array.from(galleryItems).filter(i => i.style.display !== 'none');
+                currentIndex = visibleItems.indexOf(item);
+                openLightbox(item);
+            });
+        });
+        
+        function openLightbox(item) {
+            const img = item.querySelector('img');
+            const caption = item.querySelector('.gallery-caption').textContent;
+            
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCaption.textContent = caption;
+            lightboxCounter.textContent = `${currentIndex + 1} / ${visibleItems.length}`;
+            
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        
+        function showImage(index) {
+            if (index < 0) index = visibleItems.length - 1;
+            if (index >= visibleItems.length) index = 0;
+            
+            currentIndex = index;
+            const item = visibleItems[currentIndex];
+            const img = item.querySelector('img');
+            const caption = item.querySelector('.gallery-caption').textContent;
+            
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCaption.textContent = caption;
+            lightboxCounter.textContent = `${currentIndex + 1} / ${visibleItems.length}`;
+        }
+        
+        lightboxClose.addEventListener('click', closeLightbox);
+        
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showImage(currentIndex - 1);
+        });
+        
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showImage(currentIndex + 1);
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+                if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+            }
+        });
+        
+        // Close on backdrop click
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) closeLightbox();
+        });
+        
+        // Form submission (existing code)
         const form = document.getElementById('showing-form');
         if (form) {
             form.addEventListener('submit', function(e) {
