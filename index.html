@@ -464,7 +464,7 @@
                 // Filter items
                 galleryItems.forEach(item => {
                     if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.style.display = 'block';
+                        item.style.display = '';
                         setTimeout(() => item.style.opacity = '1', 50);
                     } else {
                         item.style.opacity = '0';
