@@ -461,14 +461,14 @@
                 
                 const filter = this.getAttribute('data-filter');
                 
-                // Filter items
+                // Filter items immediately — no setTimeout to avoid stale timers
                 galleryItems.forEach(item => {
                     if (filter === 'all' || item.getAttribute('data-category') === filter) {
                         item.style.display = '';
-                        setTimeout(() => item.style.opacity = '1', 50);
+                        item.style.opacity = '1';
                     } else {
+                        item.style.display = 'none';
                         item.style.opacity = '0';
-                        setTimeout(() => item.style.display = 'none', 300);
                     }
                 });
             });
