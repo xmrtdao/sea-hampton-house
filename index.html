@@ -554,41 +554,35 @@
             if (e.target === lightbox) closeLightbox();
         });
         
-        // Form submission (existing code)
+                // Form submission — opens user email client with pre-filled message
         const form = document.getElementById('showing-form');
         if (form) {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
-                const formData = new FormData(form);
-                const data = Object.fromEntries(formData);
-                
-                // Send to Formspree (free form backend)
-                fetch('https://formspree.io/f/dvdelze', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                })
-                .then(response => {
-                    if (response.ok) {
-                        const successDiv = document.createElement('div');
-                        successDiv.className = 'form-success';
-                        successDiv.style.cssText = 'background:#4caf50;color:white;padding:20px;border-radius:4px;text-align:center;margin-top:20px;';
-                        successDiv.innerHTML = '<h3>Thank You!</h3><p>David Elze will contact you within 24 hours to schedule your showing.</p>';
-                        form.parentElement.appendChild(successDiv);
-                        form.style.display = 'none';
-                    }
-                })
-                .catch(err => {
-                    console.error('Form submission error:', err);
-                    // Fallback: show success anyway
-                    const successDiv = document.createElement('div');
-                    successDiv.className = 'form-success';
-                    successDiv.style.cssText = 'background:#4caf50;color:white;padding:20px;border-radius:4px;text-align:center;margin-top:20px;';
-                    successDiv.innerHTML = '<h3>Thank You!</h3><p>Your request has been sent to David Elze at dvdelze@gmail.com</p>';
-                    form.parentElement.appendChild(successDiv);
-                    form.style.display = 'none';
-                });
+
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const message = document.getElementById('message').value.trim();
+
+                const subject = encodeURIComponent('Showing Request - 31 Harbor Road');
+                const bodyLines = [
+                    'Name: ' + name,
+                    'Email: ' + email,
+                    'Phone: ' + (phone || '(not provided)'),
+                    '',
+                    '---',
+                    'Message:',
+                    (message || '(no message)'),
+                    '',
+                    '---',
+                    'Sent from 31harbor.com'
+                ].join('
+');
+
+                window.location.href = 'mailto:david@31harbor.com?subject=' + subject + '&body=' + encodeURIComponent(bodyLines);
+            });
+        }
                 
                 console.log('Showing request:', data);
             });
