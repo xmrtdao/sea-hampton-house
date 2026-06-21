@@ -205,5 +205,23 @@
     "subcategory": "unknown",
     "notes": "Not yet reviewed",
     "useAs": null
+  },
+  {
+    "file": "24.jpg",
+    "width": 1440,
+    "height": 1080,
+    "category": "interior",
+    "subcategory": "kitchen",
+    "notes": "Galley kitchen, blue cabinets, gas stove, water view through window. Replaces white-cabinet 04.jpg.",
+    "useAs": "interior"
+  },
+  {
+    "file": "25.jpg",
+    "width": 1440,
+    "height": 1080,
+    "category": "interior",
+    "subcategory": "kitchen-alt",
+    "notes": "Blue cabinetry alternate angle — kitchen island, counter space. Second blue-cabinet shot.",
+    "useAs": "interior"
   }
 ]
