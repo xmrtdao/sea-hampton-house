@@ -161,6 +161,10 @@
 
             <div class="gallery-grid">
 
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- EXTERIOR photos (7 items)                  -->
+                <!-- ═══════════════════════════════════════════ -->
+
                 <!-- Exterior — Aerial (large) -->
                 <div class="gallery-item large" data-category="exterior">
                     <img src="assets/images/area overview.jpg" alt="Aerial overview of Napeague Camping Club and 31 Harbor Road" loading="lazy">
@@ -176,15 +180,6 @@
                     <div class="gallery-overlay">
                         <div class="gallery-icon">🔍</div>
                         <div class="gallery-caption">Cottage Exterior</div>
-                    </div>
-                </div>
-
-                <!-- Interior — 24 (blue cabinets, large) -->
-                <div class="gallery-item large" data-category="interior">
-                    <img src="assets/interior/24.jpg" alt="Galley kitchen with blue cabinets and water view" loading="lazy">
-                    <div class="gallery-overlay">
-                        <div class="gallery-icon">🔍</div>
-                        <div class="gallery-caption">Kitchen — Blue Cabinets</div>
                     </div>
                 </div>
 
@@ -233,9 +228,22 @@
                     </div>
                 </div>
 
-                <!-- Exterior — 25 (blue cabinetry alt) — treated as exterior per original gallery -->
-                <div class="gallery-item" data-category="exterior">
-                    <img src="assets/images/exterior/25.jpg" alt="Blue cabinetry alternate angle" loading="lazy">
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- INTERIOR photos (16 items)                 -->
+                <!-- ═══════════════════════════════════════════ -->
+
+                <!-- Interior — 24 (blue cabinets, large) -->
+                <div class="gallery-item large" data-category="interior">
+                    <img src="assets/interior/24.jpg" alt="Galley kitchen with blue cabinets and water view" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">🔍</div>
+                        <div class="gallery-caption">Kitchen — Blue Cabinets</div>
+                    </div>
+                </div>
+
+                <!-- Interior — 25 (kitchen island, was miscategorized as exterior) -->
+                <div class="gallery-item" data-category="interior">
+                    <img src="assets/images/exterior/25.jpg" alt="Kitchen island with blue cabinetry" loading="lazy">
                     <div class="gallery-overlay">
                         <div class="gallery-icon">🔍</div>
                         <div class="gallery-caption">Kitchen Island</div>
@@ -354,6 +362,10 @@
                         <div class="gallery-caption">Interior</div>
                     </div>
                 </div>
+
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- WATERFRONT photos (8 items)                -->
+                <!-- ═══════════════════════════════════════════ -->
 
                 <!-- Waterfront photos from assets/images/waterfront/ -->
                 <div class="gallery-item" data-category="waterfront">
@@ -667,7 +679,7 @@
             if (e.target === lightbox) closeLightbox();
         });
         
-                        // Form submission — POST to relay which sends via Resend + confirmation
+                        // Form submission — POST to relay which sends via Resend + confirmation, then redirect to thank-you
         const form = document.getElementById('showing-form');
         if (form) {
             form.addEventListener('submit', async function(e) {
@@ -691,7 +703,7 @@
                     });
                     const data = await resp.json();
                     if (data.success) {
-                        form.innerHTML = '<div style="text-align:center;padding:40px 20px;"><div style="font-size:48px;margin-bottom:16px;">\u2705</div><h3 style="margin:0 0 8px;">Request Sent!</h3><p style="color:#666;margin:0;">Thank you, ' + name + '. We\'ll respond within 24 hours to confirm your appointment. A confirmation has been sent to <strong>' + email + '</strong>.</p></div>';
+                        window.location.href = 'thank-you.html?name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email);
                     } else {
                         alert('Something went wrong. Please email david@31harbor.com directly.');
                         btn.textContent = origText;
